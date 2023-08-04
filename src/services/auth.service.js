@@ -14,6 +14,7 @@ class AuthService {
       throw Boom.badRequest("비밀번호가 일치하지 않습니다.");
     }
     const hashedPassword = await createHashPassword(password);
+    console.log(hashedPassword);
     const newSingup = await this.authRepository(email, hashedPassword);
     return newSingup;
   };
