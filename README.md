@@ -12,3 +12,6 @@
 구현 방법 및 이유에 대한 간략한 설명
 
 API 명세(request/response 포함)
+
+![image](https://github.com/dabeenkim/wanted-pre-onboarding-backend/assets/124576278/09326a75-44a0-4550-9bc9-7ae61732a440)
+
