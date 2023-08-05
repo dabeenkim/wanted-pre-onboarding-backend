@@ -15,5 +15,6 @@
 
 API 명세(request/response 포함)
 
-![image](https://github.com/dabeenkim/wanted-pre-onboarding-backend/assets/124576278/09326a75-44a0-4550-9bc9-7ae61732a440)
+![image](https://github.com/dabeenkim/wanted-pre-onboarding-backend/assets/124576278/c51f95d7-d9f3-4f1a-9774-350719d414dd)
+
 
