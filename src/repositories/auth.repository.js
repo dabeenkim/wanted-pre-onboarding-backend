@@ -1,8 +1,22 @@
-class UserRepository {
-  constructor() {}
+const { Users } = require("../../models");
 
+class UserRepository extends Users {
+  constructor() {
+    super();
+  }
+
+  findEmail = async (email) => {
+    return await Users.findOne({ where: { email } });
+  };
   signup = async (email, hashedPassword) => {
-    await this.Users.create({ email, password: hashedPassword });
+    return await Users.create({ email, password: hashedPassword });
+  };
+
+  checkData = async (email) => {
+    const user = await Users.findOne({
+      where: { email },
+    });
+    return user;
   };
 }
 
