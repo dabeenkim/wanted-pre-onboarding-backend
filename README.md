@@ -35,15 +35,22 @@ localhost:3000/api/post/2/remove
 
 ### Users
 email : STRING
+
 password : STRING
+
 createdAt : DATE
+
 updatedAt : DATE
 
 ### Posts
 postId : INTERGER
+
 title : STRING
+
 desc : STRING
+
 createdAt : DATE
+
 updatedAt : DATE
 
 ---
