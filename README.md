@@ -60,6 +60,8 @@ updatedAt : DATE
 ---
 구현한 API의 동작을 촬영한 데모 영상 링크
 
+https://youtu.be/r5iZfq0-XZU
+
 ---
 구현 방법 및 이유에 대한 간략한 설명
 
