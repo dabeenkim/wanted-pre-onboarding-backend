@@ -5,6 +5,6 @@ const authRouter = require("./auth.routes");
 const postRouter = require("./post.routes");
 
 router.use("/auth", authRouter);
-// router.use("/post", postRouter);
+router.use("/post", postRouter);
 
 module.exports = router;
