@@ -9,37 +9,37 @@
 ---
 애플리케이션의 실행 방법 (엔드포인트 호출 방법 포함)
 
-##회원가입( POST )
+## 회원가입( POST )
 localhost:3000/api/auth/signup
 
-##로그인( POST )
+## 로그인( POST )
 localhost:3000/api/auth/login
 
-##게시글 전체조회( GET )
+## 게시글 전체조회( GET )
 localhost:3000/api/post?offset=0&limit=5
 
-##게시글 작성( POST )
+## 게시글 작성( POST )
 localhost:3000/api/post
 
-##게시글 상세조회( GET )
+## 게시글 상세조회( GET )
 localhost:3000/api/post/2
 
-##게시글 수정( PATCH )
+## 게시글 수정( PATCH )
 localhost:3000/api/post/2
 
-##게시글 삭제( DELETE )
+## 게시글 삭제( DELETE )
 localhost:3000/api/post/2/remove
 
 ---
 데이터베이스 테이블 구조
 
-###Users
+### Users
 email : STRING
 password : STRING
 createdAt : DATE
 updatedAt : DATE
 
-###Posts
+### Posts
 postId : INTERGER
 title : STRING
 desc : STRING
