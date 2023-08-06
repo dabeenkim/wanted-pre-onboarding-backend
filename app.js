@@ -4,10 +4,12 @@ require("express-async-errors");
 const express = require("express");
 const routes = require("./src/routes");
 const logger = require("./src/middleware/logger");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = process.env.SERVER_PORT;
 
+app.use(cookieParser());
 app.use(express.json());
 app.use("/api", routes);
 

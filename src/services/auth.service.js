@@ -1,7 +1,6 @@
 const Boom = require("boom");
 const AuthRepository = require("../repositories/auth.repository");
 const authSchema = require("../validation/authValidator");
-const loginSchema = require("../validation/loginValidator");
 const JWT = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -27,11 +26,14 @@ class AuthService {
     return newSingup;
   };
 
-  login = async (loginData) => {
-    const { email, password } = await loginSchema.validateAsync(loginData);
+  login = async (email, password) => {
     const userData = await this.authRepository.checkData(email);
-    const makeToken = JWT.sign({ email: userData.email }, "env.SECRET_KEY");
     const checkPassword = await bcrypt.compare(password, userData.password);
+    return checkPassword;
+  };
+  makeToken = async (email) => {
+    const makeToken = JWT.sign({ email: email }, process.env.SECRET_KEY);
+    return makeToken;
   };
 }
 

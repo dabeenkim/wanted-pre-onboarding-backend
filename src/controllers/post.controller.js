@@ -27,6 +27,7 @@ class PostController {
    */
   getDetailPost = async (req, res, next) => {
     const { postId } = req.params;
+    console.log(postId);
     const getOnePost = await this.postService.findPost(postId);
     res.status(200).json({ getOnePost });
   };

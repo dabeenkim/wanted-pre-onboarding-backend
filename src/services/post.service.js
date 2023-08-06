@@ -33,7 +33,7 @@ class PostService {
   /**
    * 게시글 수정
    */
-  modifyPosts = async (email, title, desc) => {
+  modifyPosts = async (email, postId, title, desc) => {
     const modifyThePost = await this.postRepository.modifyPost(
       email,
       postId,

@@ -1,3 +1,6 @@
+require("dotenv").config();
+const loginSchema = require("../validation/loginValidator");
+
 const AuthService = require("../services/auth.service");
 
 class AuthController {
@@ -21,8 +24,11 @@ class AuthController {
 
   login = async (req, res, next) => {
     try {
-      const loginData = req.body;
-      const login = await this.authService.login(loginData);
+      const { email, password } = await loginSchema.validateAsync(req.body);
+      const login = await this.authService.login(email, password);
+      const token = await this.authService.makeToken(email);
+
+      res.cookie("authorization", `Bearer ${token}`);
       res.status(200).json({ message: "로그인 되었습니다." });
     } catch (error) {
       throw error;

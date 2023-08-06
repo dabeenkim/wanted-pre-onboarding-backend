@@ -1,4 +1,5 @@
 const { Users, Posts } = require("../../models");
+const { Op } = require("sequelize");
 
 class PostRepository {
   constructor() {}
@@ -7,7 +8,14 @@ class PostRepository {
    */
   getPosts = async (offset, limit) => {
     const findPosts = await Posts.findAll({
-      attributes: ["postId", "email", "title", "desc", "createAt", "updatedAt"],
+      attributes: [
+        "postId",
+        "email",
+        "title",
+        "desc",
+        "createdAt",
+        "updatedAt",
+      ],
       offset: offset,
       limit: limit,
       order: [["createdAt", "DESC"]],
@@ -16,22 +24,13 @@ class PostRepository {
     const postCnt = await Posts.count();
     const hasNextPage = offset + limit < postCnt;
 
-    const paginationInfo = {
+    return {
+      data: findPosts,
       limit,
       offset,
       postCnt,
       hasNextPage,
     };
-
-    return (
-      {
-        getPosts: {
-          count: findPosts.count,
-          findPosts,
-        },
-      },
-      paginationInfo
-    );
   };
 
   /**
@@ -67,7 +66,7 @@ class PostRepository {
       },
       {
         where: {
-          [Op.end]: [{ postId }, { email }],
+          [Op.and]: [{ postId }, { email }],
         },
       }
     );
@@ -80,7 +79,7 @@ class PostRepository {
   removePost = async (email, postId) => {
     const deletePost = await Posts.destroy({
       where: {
-        [Op.end]: [{ postId }, { email }],
+        [Op.and]: [{ postId }, { email }],
       },
     });
     return deletePost;
